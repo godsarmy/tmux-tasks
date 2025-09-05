@@ -34,9 +34,9 @@ tasks_icon_urgent=$(get_tmux_option "@tasks_icon_urgent" "⧗")
 tasks_icon_outstanding=$(get_tmux_option "@tasks_icon_outstanding" "+")
 tasks_icon_overdue=$(get_tmux_option "@tasks_icon_outstanding" "!")
 
+tasks_display=$(get_tmux_option "@tasks_display" "status-left")
 # Substitution
 tasks_status="$tasks_icon_overdue$command_taskwarrior_overdue $tasks_icon_urgent$command_taskwarrior_urgent $tasks_icon_outstanding$command_taskwarrior_outstanding"
 tasks_placeholder_status="$tasks_format_begin $tasks_status $tasks_format_end"
 
-# update_status "status-left"
-update_status "status-right"
+update_status "$tasks_display"
