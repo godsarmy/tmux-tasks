@@ -16,27 +16,27 @@ get_tmux_option() {
 }
 
 update_status() {
-  local status_value
-  status_value="$(get_tmux_option "$1")"
-
-  tmux set-option -gq "$1" "${status_value/$tasks_placeholder_status/$tasks_status}"
+  tmux set-option -ga "$1" "${tasks_placeholder_status}"
+  tmux set-option -ga "$1"-length 100
 }
 
 # Commands
 command_taskwarrior_urgent="#($CURRENT_DIR/scripts/taskwarrior_urgent.sh)"
 command_taskwarrior_outstanding="#($CURRENT_DIR/scripts/taskwarrior_outstanding.sh)"
+command_taskwarrior_overdue="#($CURRENT_DIR/scripts/taskwarrior_overdue.sh)"
 
 # Colors
 tasks_format_begin=$(get_tmux_option "@tasks_format_begin" "#[fg=white,bg=colour236]")
 tasks_format_end=$(get_tmux_option "@tasks_format_end" "#[fg=default,bg=default]")
 
 # Icons
-tasks_icon_urgent=$(get_tmux_option "@tasks_icon_urgent" "⧗ ")
+tasks_icon_urgent=$(get_tmux_option "@tasks_icon_urgent" "⧗")
 tasks_icon_outstanding=$(get_tmux_option "@tasks_icon_outstanding" "+")
+tasks_icon_overdue=$(get_tmux_option "@tasks_icon_outstanding" "!")
 
 # Substitution
-tasks_placeholder_status="\#{tasks_status}"
-tasks_status="$tasks_format_begin $tasks_icon_urgent$command_taskwarrior_urgent $tasks_icon_outstanding$command_taskwarrior_outstanding $tasks_format_end"
+tasks_status="$tasks_icon_overdue$command_taskwarrior_overdue $tasks_icon_urgent$command_taskwarrior_urgent $tasks_icon_outstanding$command_taskwarrior_outstanding"
+tasks_placeholder_status="$tasks_format_begin $tasks_status $tasks_format_end"
 
-update_status "status-left"
+# update_status "status-left"
 update_status "status-right"
