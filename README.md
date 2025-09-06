@@ -22,7 +22,7 @@ set -g status-right '#{tasks_status} %a %Y-%m-%d %H:%M'
 2. Add this plugin to your `~/.tmux.conf`:
 
 ```
-set -g @plugin 'chriszarate/tmux-tasks'
+set -g @plugin 'godsarmy/tmux-tasks'
 ```
 
 3. Press [prefix] + `I` to install.
@@ -41,7 +41,13 @@ set -g @tasks_manager 'taskwarrior'
 set -g @tasks_format_begin '#[fg=white,bg=colour236]'
 set -g @tasks_format_end '#[fg=white,bg=black]'
 
+# Font Colors
+set -g @tasks_format_overdue '#[fg=brightred]'
+set -g @tasks_format_urgent '#[fg=orange]'
+set -g @tasks_format_outstanding '#[fg=brightblue]'
+
 # Icons
+set -g @tasks_icon_overdue '!'
 set -g @tasks_icon_urgent '⧗ '
 set -g @tasks_icon_outstanding '+'
 ```
