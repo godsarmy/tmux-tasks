@@ -1,6 +1,7 @@
 # Tmux Tasks
 
-This `tmux` plugin shows a simple count of your urgent and non-urgent tasks.
+This `tmux` plugin shows a simple count of your overdue, urgent and non-urgent
+tasks.
 
 ![docker status](example.png)
 
