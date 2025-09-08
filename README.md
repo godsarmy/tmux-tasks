@@ -30,6 +30,8 @@ set -g @plugin 'godsarmy/tmux-tasks'
 
 ## Configuration
 
+1. General
+
 The following configuration variables can be set in your `~/.tmux.conf` (shown
 here with their default values):
 
@@ -47,11 +49,24 @@ set -g @tasks_format_urgent '#[fg=orange]'
 set -g @tasks_format_outstanding '#[fg=brightblue]'
 
 # Icons
-set -g @tasks_icon_overdue '!'
+set -g @tasks_icon_overdue '⏱ '
 set -g @tasks_icon_urgent '⧗ '
-set -g @tasks_icon_outstanding '+'
+set -g @tasks_icon_outstanding '⌘ '
 ```
 
+2. Project (Optional)
+
+Use `@tasks_project` to display the tasks count in particular projects.
+
+```
+# List tasks in each projects available
+set -g @tasks_project '*'
+```
+
+```
+# List task only in project ProjA and ProjB
+set -g @tasks_project 'ProjA ProjB'
+```
 
 ## Supported task managers
 
