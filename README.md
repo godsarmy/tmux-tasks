@@ -56,16 +56,16 @@ set -g @tasks_icon_outstanding '⌘ '
 
 2. Project (Optional)
 
-Use `@tasks_project` to display the tasks count in particular projects.
+Use `@tasks_projects` to display the tasks count in particular projects.
 
 ```
 # List tasks in each projects available
-set -g @tasks_project '*'
+set -g @tasks_projects '*'
 ```
 
 ```
 # List task only in project ProjA and ProjB
-set -g @tasks_project 'ProjA ProjB'
+set -g @tasks_projects 'ProjA ProjB'
 ```
 
 ## Supported task managers
