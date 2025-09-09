@@ -7,7 +7,7 @@ project_output() {
   projects="${1:-}"
 
   for project in $projects; do
-    count=$(task count project:"$project")
+    count=$(task count status:pending project:"$project")
     if [[ "$output" == "" ]]; then
       output="$project:$count"
     else
