@@ -6,6 +6,10 @@ tasks.
 ![docker status](example.png)
 
 
+## Requirements
+
+Your terminal emulator must be configured to use that font, usually "Hack Nerd Font"
+
 ## Usage
 
 Add `#{tasks_status}` to your `status-left` or `status-right`:
@@ -49,9 +53,10 @@ set -g @tasks_format_urgent '#[fg=orange]'
 set -g @tasks_format_outstanding '#[fg=brightblue]'
 
 # Icons
-set -g @tasks_icon_overdue '⏱ '
-set -g @tasks_icon_urgent '⧗ '
-set -g @tasks_icon_outstanding '⌘ '
+set -g tasks_icon_overdue ' '
+set -g tasks_icon_urgent '󰄉 '
+set -g tasks_icon_outstanding ' '
+set -g tasks_icon_project '⚙ '
 ```
 
 2. Project (Optional)

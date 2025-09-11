@@ -27,6 +27,12 @@ update_status() {
   set_tmux_option "$1" "${status_value//$tasks_placeholder_status/$tasks_status}"
 }
 
+# Icons
+tasks_icon_overdue=$(get_tmux_option "@tasks_icon_overdue" " ")
+tasks_icon_urgent=$(get_tmux_option "@tasks_icon_urgent" "󰄉 ")
+tasks_icon_outstanding=$(get_tmux_option "@tasks_icon_outstanding" " ")
+tasks_icon_project=$(get_tmux_option "@tasks_icon_project" "⚙ ")
+
 # Colors
 tasks_format_begin=$(get_tmux_option "@tasks_format_begin" "#[fg=white,bg=colour236]")
 tasks_format_end=$(get_tmux_option "@tasks_format_end" "#[fg=default,bg=default]")
@@ -40,12 +46,7 @@ tasks_projects=$(get_tmux_option "@tasks_projects" "")
 command_taskwarrior_urgent="#($CURRENT_DIR/scripts/taskwarrior_urgent.sh)"
 command_taskwarrior_outstanding="#($CURRENT_DIR/scripts/taskwarrior_outstanding.sh)"
 command_taskwarrior_overdue="#($CURRENT_DIR/scripts/taskwarrior_overdue.sh)"
-command_taskwarrior_project="#($CURRENT_DIR/scripts/taskwarrior_project.sh '$tasks_projects')"
-
-# Icons
-tasks_icon_overdue=$(get_tmux_option "@tasks_icon_overdue" "⏱ ")
-tasks_icon_urgent=$(get_tmux_option "@tasks_icon_urgent" "⧗ ")
-tasks_icon_outstanding=$(get_tmux_option "@tasks_icon_outstanding" "⌘ ")
+command_taskwarrior_project="#($CURRENT_DIR/scripts/taskwarrior_project.sh '$tasks_projects' '$tasks_icon_project')"
 
 # Substitution
 tasks_data_overdue="$tasks_format_overdue$tasks_icon_overdue$command_taskwarrior_overdue"
